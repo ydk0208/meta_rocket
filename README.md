@@ -12,4 +12,6 @@ to do
 todo
 1. skeleton code
 2. 3d print(rib,wings,jet vanes,battery bays)
-3. 
+3. Gyro test
+4. rf24 module test
+5. PCB
