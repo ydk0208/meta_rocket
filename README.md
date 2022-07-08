@@ -16,3 +16,9 @@ todo
 4. rf24 module test - need an extra laptop or usb hub
 5. PCB - my soldering sucks, gonna use breadboard
 
+220709
+todo
+1. PID tuning
+2. RF24 test
+3. ground station
+4. rib, covering, jet vane, jig
