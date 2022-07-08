@@ -10,8 +10,9 @@ to do
 
 220708
 todo
-1. skeleton code
-2. 3d print(rib,wings,jet vanes,battery bays)
-3. Gyro test
-4. rf24 module test
-5. PCB
+1. skeleton code (done)
+2. 3d print(rib,wings,jet vanes,battery bays) - only designed, printer jammed
+3. Gyro test (done)
+4. rf24 module test - need an extra laptop or usb hub
+5. PCB - my soldering sucks, gonna use breadboard
+
