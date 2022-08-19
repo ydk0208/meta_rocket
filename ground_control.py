@@ -1,41 +1,19 @@
-import random
-from itertools import count
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
- 
-plt.style.use('fivethirtyeight')
-f,axes = plt.subplots(2, 3)
-plt.subplots_adjust(wspace = 0.3, hspace = 0.3)
+import asyncio # 비동기화 모듈
+from bleak import BleakScanner # BLE 검색 모듈
 
-x_val = []
-y_val1 = []
-y_val2 = []
-y_val3 = []
- 
-index = count()
- 
-def animate(i):
-    x_val.append(next(index))
-    y_val1.append(random.randint(-50,50))
-    y_val2.append(random.randint(-50,50))
-    y_val3.append(random.randint(-50,50))
-    
-    if len(x_val) >= 10:
-        plt.cla()
-        axes[0][0].plot(x_val[5:11],y_val1[5:11], color = 'purple')
-        axes[0][1].plot(x_val[-10:],y_val2[-10:], color = 'green')
-        axes[0][2].plot(x_val[-10:],y_val3[-10:], color = 'blue')
-    else:
-        plt.cla()
-        axes[0][0].plot(x_val, y_val1, color = 'red')
-        axes[0][1].plot(x_val, y_val2, color = 'green')
-        axes[0][2].plot(x_val, y_val3, color = 'blue')
+# 비동기 형태로 BLE 장치 검색
+async def run():
+    # 검색 시작 (검색이 종료될때까지 대기)
+    # 기본 검색 시간은 5초이다.
+    devices = await BleakScanner.discover()
+    # 검색된 장치들 리스트 출력
+    for d in devices:
+        if "Unknown" not in str(d):
+            print(d)
+    print("done")
 
- 
-ani = FuncAnimation(plt.gcf(), animate, interval = 500)
- 
- 
-
- 
-plt.show()
+# 비동기 이벤트 루프 생성
+loop = asyncio.get_event_loop()
+# 비동기 형태로 run(검색)함수 실행
+# 완료될때까지 대기
+loop.run_until_complete(run())
