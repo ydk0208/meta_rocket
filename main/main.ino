@@ -118,11 +118,11 @@ void loop() {
 #endif
 
   calcIMU(gyroXrate,gyroYrate,roll,pitch,dt);
-  printRAW(); /* Print Raw Data */
+  //printRAW(); /* Print Raw Data */
   printAngle(roll,pitch); /* Print Filtered Data */
-  printTMP();
+  //printTMP();
   Serial.print("\r\n");
-  delay(2);
+  delay(5);
 }
 
 
